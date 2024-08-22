@@ -1,1 +1,19 @@
+@font-face {
+    font-family: 'Judson';
+    src: url('/fonts/Judson-Regular.ttf') format('ttf');
+    font-weight: normal;
+    font-style: normal;
+}
 
+@font-face {
+    font-family: 'Judson';
+    src: url('/fonts/Judson-Bold.ttf') format('ttf');
+    font-weight: bold;
+    font-style: normal;
+}
+
+body {
+    background-color: #F1FAEE;
+    margin: 0;
+    font-family: 'Judson', sans-serif;
+}

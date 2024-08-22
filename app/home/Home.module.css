@@ -1,0 +1,28 @@
+.home {
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-rows: 0.17fr 1fr;
+    font-family: 'Judson';
+    color: #1D3557;
+}
+
+.header_div {
+    grid-row: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-inline: 5vw;
+}
+
+.header {
+    font-weight: bold;
+    font-size: 2.5rem;
+}
+
+.search {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

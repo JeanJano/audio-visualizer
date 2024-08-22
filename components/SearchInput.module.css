@@ -1,0 +1,28 @@
+.input_container {
+    width: 40vw;
+    height: 3.5rem;
+    border: 1px solid #1D3557;
+    border-radius: 1.5rem;
+    padding-inline: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: border 25ms;
+}
+
+.input_container:hover {
+    border: 3px solid #1D3557;
+    transition: border 25ms;
+}
+
+.search_input {
+    width: 40vw;
+    height: 2.8rem;
+    padding-inline: 1rem;
+    border: none;
+    font-size: 1rem;
+    font-family: 'Judson';
+    color: #1D3557;
+    background-color: #F1FAEE;
+    outline: none;
+}
