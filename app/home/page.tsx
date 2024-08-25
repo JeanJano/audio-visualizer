@@ -7,7 +7,7 @@ const Home: React.FC = () => {
     return (
         <div className={`${styles.home}`}>
             <div className={`${styles.header_div}`}>
-                <div className={`${styles.header}`}>Looking for a music</div>
+                <div className={`${styles.header}`} id="header">Looking for a music</div>
                 <Image src="/images/clover.png" alt="clover" width={39} height={39} />
             </div>
             <div className={`${styles.search}`}>

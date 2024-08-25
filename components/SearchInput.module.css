@@ -1,28 +1,28 @@
 .input_container {
-    width: 40vw;
-    height: 3.5rem;
-    border: 1px solid #1D3557;
-    border-radius: 1.5rem;
-    padding-inline: 1rem;
+    position: relative;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: border 25ms;
 }
 
-.input_container:hover {
-    border: 3px solid #1D3557;
-    transition: border 25ms;
+.search_icon {
+    position: absolute;
+    top: 33%;
+    left: 2%;
 }
 
 .search_input {
     width: 40vw;
-    height: 2.8rem;
-    padding-inline: 1rem;
-    border: none;
-    font-size: 1rem;
-    font-family: 'Judson';
-    color: #1D3557;
+    height: 3.5rem;
+    border: 1px solid #1D3557;
+    border-radius: 1.5rem;
+    padding-inline: 3.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: border 25ms;
     background-color: #F1FAEE;
-    outline: none;
+}
+
+.search_input:hover {
+    border: 1.5px solid #1D3557;
+    transition: border 25ms;
 }
