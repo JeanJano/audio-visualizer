@@ -1,9 +1,13 @@
+'use client';
+
 import styles from "./Home.module.css";
 import SearchInput from "@/components/searchInput";
 import Image from "next/image";
 import React from "react";
 
 const Home: React.FC = () => {
+    const accessToken = localStorage.getItem('spotify_access_token');
+    console.log(accessToken);   
     return (
         <div className={`${styles.home}`}>
             <div className={`${styles.header_div}`}>

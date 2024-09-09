@@ -7,7 +7,12 @@ const HomePage: React.FC = () => {
     const router = useRouter();
 
     useEffect(() => {
-        router.push('/login');
+        const token = localStorage.getItem('spotify_access_token');
+        if (!token) {
+            router.push('/login');
+        } else {
+            router.push('/home');
+        }
     }, [router]);
 
     return <div>Redirection vers spotify...</div>;

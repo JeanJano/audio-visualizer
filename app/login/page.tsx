@@ -9,7 +9,7 @@ const LoginPage: React.FC = () => {
     useEffect(() => {
         const clientId = process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID;
         const redirectUri = process.env.NEXT_PUBLIC_SPOTIFY_REDIRECT_URI;
-        const scopes = encodeURIComponent('user-read-private user-read-email');
+        const scopes = encodeURIComponent('user-read-currently-playing user-top-read user-read-private');
 
         const spotifyAuthUrl = `https://accounts.spotify.com/authorize?response_type=code&client_id=${clientId}&scope=${scopes}&redirect_uri=${encodeURIComponent(redirectUri as string)}`;
 

@@ -5,7 +5,6 @@ import axios from 'axios';
 import { useRouter, useSearchParams } from 'next/navigation';
 
 const CallBack: React.FC = () => {
-    const router = useRouter();
     const searchParams = useSearchParams();
     const code = searchParams.get('code');
 
@@ -16,33 +15,36 @@ const CallBack: React.FC = () => {
     }, [code]);
 
     const getAccessToken = async (authorizationCode: string) => {
-        console.log("authorization code", authorizationCode);
         try {
-            console.log("client id", process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID as string);
-            const response = await axios.post('https://accounts.spotify.com/api/token', null, {
-                params: {
-                    grant_type: 'authorization_code',
-                    code: authorizationCode,
-                    redirect_uri: process.env.NEXT_PUBLIC_SPOTIFY_REDIRECT_URI,
-                    client_id: process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID,
-                    client_secret: process.env.SPOTIFY_CLIENT_SECRET,
-                },
+            const response = await fetch('/api/spotify', {
+                method: 'POST',
                 headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'Content-Type': 'application/json',
                 },
+                body: JSON.stringify({ code: authorizationCode })
             });
 
-            const { access_token, refresh_token } = response.data;
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
 
-            console.log("access token", access_token);
-            console.log("refresh token", refresh_token);
+            const data = await response.json();
+            const { access_token, refresh_token } = data;
 
+            console.log("Access Token:", access_token);
+            console.log("Refresh Token:", refresh_token);
+
+            localStorage.setItem('spotify_access_token', access_token);
+            localStorage.setItem('spotify_refresh_token', refresh_token);
+
+            const router = useRouter();
+            router.push('/home')
         } catch (error) {
-            console.error('Error fetching access token', (error as any).response?.data || (error as any).message);
+            console.error('Error fetching access token:', error);
         }
-    }
+    };
 
     return <div>Authentification en cours...</div>;
-}
+};
 
 export default CallBack;
